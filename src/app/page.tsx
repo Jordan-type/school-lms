@@ -4,6 +4,10 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 
+
+import photo from '../../public/lazar.png'
+import Head from "next/head";
+
 interface User {
   name: string;
   age: number;
@@ -12,6 +16,7 @@ interface User {
 interface UserDictionary {
   [key: number]: User;
 }
+
 
 export default function Home() {
   const [count, setCount] = useState(5);
@@ -35,11 +40,27 @@ export default function Home() {
 
   return (
     <>
+    <Head>
+      <title>Home Page</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta name="descriptin" content="An lms course on how to build a school management system" key="title"/>
+    </Head>
     <Navbar />
     <div className="container">
+      <Image
+       src={'/lazar.png'}
+       height={150}
+       width={150}
+       alt="logo"
+       
+       />
+
+
 
       <h1>Welcome to the home page</h1>
+      <Image src={photo} alt="logo"/>
       <p>You clicked {count} times</p>
+      <img src="/lazar.png" alt="logo" />
       <button onClick={() => setCount(count + 1)}>
         Click me
       </button>
